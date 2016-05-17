@@ -9,13 +9,13 @@
  */
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
-        TreeNode node = TreeNode(root.val);
-        if(node != null){
+        if(root != null){
+            TreeNode node = new TreeNode(root.val);
             node.left = invertTree(root.right);
             node.right = invertTree(root.left);
             return node;
         }else{
-            return node;
+            return root;
         }
     }
 }
