@@ -8,6 +8,7 @@
  */
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
+        if(head == null){return head;}
         ListNode node = head;
         while(node.next != null){
             if(node.next.val == node.val){
