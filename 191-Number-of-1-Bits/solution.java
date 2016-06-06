@@ -7,5 +7,6 @@ public class Solution {
             n = n / 2;
             ans += res;
         }
+        return ans;
     }
 }
