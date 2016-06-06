@@ -15,28 +15,25 @@ public class Solution {
             head = null;
             return head;
         }
+        if((node1 != null && node2 == null) || node1.val <  node2.val){//find the head of merged list
+            node3 = node1;
+            head = node1;
+            node1 = node1.next;
+        }else{
+            node3 = node2;
+            head = node2;
+            node2 = node2.next;
+        }
         while(node1 != null && node2 != null){
-            if(node1.val >  node2.val){
-                if(node3 == null){
-                    node3 = node1;
-                    head = node3;
-                    node1 = node1.next;
-                }
-                else{
-                    node3.next = node1;
-                    node1 = node1.next;
-                }
+            if(node1.val <  node2.val){
+                node3.next = node1;
+                node1 = node1.next;
+                node3 = node3.next;
             }
             else{
-                if(node3 == null){
-                    node3 = node2;
-                    head = node3;
-                    node2 = node2.next;
-                }
-                else{
-                    node3.next = node2;
-                    node2 = node2.next;
-                }
+                node3.next = node2;
+                node2 = node2.next;
+                node3 = node3.next;
             }
         }
         if(node1 == null){
