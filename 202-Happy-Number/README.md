@@ -1,0 +1,1 @@
+Use fast and slow to check whether loop exists
