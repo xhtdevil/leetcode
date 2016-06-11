@@ -6,7 +6,7 @@ public class Solution {
                 temp = nums[i];
                 nums[i] = nums[n - 1];
                 nums[n - 1] = temp;
-                n--;
+                if(n > 0){n--;}else{break;}
             }else{
                 i++;
             }
