@@ -33,7 +33,7 @@ class MyQueue {
             int x = sa.pop();
             return x;
         }else{
-            return null
+            return null;
         }
     }
 
