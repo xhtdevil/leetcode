@@ -30,10 +30,10 @@ class MyQueue {
     // Get the front element.
     public int peek() {
         if(!sa.isEmpty()){
-            int x = sa.pop();
+            int x = sa.peek();
             return x;
         }else{
-            return null;
+            return 0;
         }
     }
 
