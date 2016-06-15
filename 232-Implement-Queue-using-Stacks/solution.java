@@ -28,6 +28,7 @@ class MyQueue {
     // Get the front element.
     public int peek() {
         int x = sa.pop();
+        return x;
     }
 
     // Return whether the queue is empty.
