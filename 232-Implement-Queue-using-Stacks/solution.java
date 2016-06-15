@@ -22,13 +22,19 @@ class MyQueue {
 
     // Removes the element from in front of queue.
     public void pop() {
-        sa.pop();
+        if(!sa.isEmpty()){
+            sa.pop();
+        }
     }
 
     // Get the front element.
     public int peek() {
-        int x = sa.pop();
-        return x;
+        if(!sa.isEmpty()){
+            int x = sa.pop();
+            return x;
+        }else{
+            return null
+        }
     }
 
     // Return whether the queue is empty.
