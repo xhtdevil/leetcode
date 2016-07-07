@@ -11,17 +11,12 @@ public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> Tree = new ArrayList<List<Integer>>();
         int level = 0;
-        levelBuild(Tree, level, root);
+        levelBuild(Tree, level, root);      //use "level" to mark the level of the node in the tree
         return Tree;
-        // while(TreeNode != null){
-            
-        // }
-        // Tree.add(new ArrayList<Integer>);
-        // Tree.get(i).add(TreeNode.val);
     }
     private void levelBuild(List<List<Integer>> Tree, int level, TreeNode node){
         if(node == null){return;}
-        if(level == Tree.size()){Tree.add(new ArrayList<Integer>());}
+        if(level == Tree.size()){Tree.add(new ArrayList<Integer>());}           
         Tree.get(level).add(node.val);
         level++;
         levelBuild(Tree, level, node.left);
