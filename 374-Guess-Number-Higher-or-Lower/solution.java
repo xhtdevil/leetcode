@@ -8,7 +8,7 @@ public class Solution extends GuessGame {
         int highb = n;
         int lowb = 1;
         int guessNum = (n + 1) / 2;
-        while(true){
+        while(lowb < highb){
             // if(guess(guessNum) == 0){
             //     return guessNum;
             // }
@@ -22,5 +22,6 @@ public class Solution extends GuessGame {
             }
             else{ return guessNum;}
         }
+        return lowb;
     }
 }
