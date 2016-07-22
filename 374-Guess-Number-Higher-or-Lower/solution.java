@@ -7,18 +7,20 @@ public class Solution extends GuessGame {
     public int guessNumber(int n) {
         int highb = n;
         int lowb = 1;
-        int guessNum = (n + 1) / 2;
+        int guessNum;
+       // int guessNum = (n + 1) / 2;
         while(lowb < highb){
             // if(guess(guessNum) == 0){
             //     return guessNum;
             // }
+            guessNum = (lowb + highb) / 2;
             if(guess(guessNum) == -1){
                 highb = guessNum;
-                guessNum = (lowb + highb) / 2;
+              //  guessNum = (lowb + highb) / 2;
             }
             else if(guess(guessNum) == 1){
-                lowb = guessNum;
-                guessNum = (lowb + highb) / 2 + 1;
+                lowb = guessNum + 1;
+            //    guessNum = (lowb + highb) / 2 + 1;
             }
             else{ return guessNum;}
         }
