@@ -9,10 +9,10 @@ public class Solution extends GuessGame {
         int lowb = 1;
         int guessNum = (n + 1) / 2;
         while(true){
-            if(guess(guessNum) == 0){
-                return guessNum;
-            }
-            else if(guess(guessNum) == -1){
+            // if(guess(guessNum) == 0){
+            //     return guessNum;
+            // }
+            if(guess(guessNum) == -1){
                 highb = guessNum;
                 guessNum = (lowb + highb) / 2;
             }
@@ -20,6 +20,7 @@ public class Solution extends GuessGame {
                 lowb = guessNum;
                 guessNum = (lowb + highb) / 2 + 1;
             }
+            else{ return guessNum;}
         }
     }
 }
