@@ -10,8 +10,9 @@
 public class Solution {
     private List<String> StringList = new ArrayList<String>(); 
     public List<String> binaryTreePaths(TreeNode root) {
-        if(root == null){return ;}
+        if(root == null){return StringList;}
         String Path = root.val + "";
+        if(root.right == null && root.left == null){StringList.add(Path);}
         binaryTreePathsRecord(root.right, Path);
         binaryTreePathsRecord(root.left, Path);
         return StringList;
