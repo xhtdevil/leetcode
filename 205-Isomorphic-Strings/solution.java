@@ -18,23 +18,39 @@
 //         return true;
 //     }
 // }
-public class Solution {
-public boolean isIsomorphic(String s, String t) {
-Map <Character,Integer> hash1 = new HashMap<Character,Integer>();
-Map <Character,Integer> hash2 = new HashMap<Character,Integer>();
 
-        for(int i=0; i<s.length();i++){
-            char ch1 = s.charAt(i);
-            char ch2 = t.charAt(i);
+// public class Solution {
+// public boolean isIsomorphic(String s, String t) {
+// Map <Character,Integer> hash1 = new HashMap<Character,Integer>();
+// Map <Character,Integer> hash2 = new HashMap<Character,Integer>();
+
+//         for(int i=0; i<s.length();i++){
+//             char ch1 = s.charAt(i);
+//             char ch2 = t.charAt(i);
             
-            if(hash1.containsKey(ch1)){
-                if(t.charAt(hash1.get(ch1)) != t.charAt(i))
-                    return false;
-            }else{
-                if(hash2.containsKey(ch2))
-                    return false;
-                hash1.put(ch1,i);
-                hash2.put(ch2,i);
+//             if(hash1.containsKey(ch1)){
+//                 if(t.charAt(hash1.get(ch1)) != t.charAt(i))
+//                     return false;
+//             }else{
+//                 if(hash2.containsKey(ch2))
+//                     return false;
+//                 hash1.put(ch1,i);
+//                 hash2.put(ch2,i);
+//             }
+//         }
+//         return true;
+//     }
+// }
+
+public class Solution {
+public boolean isIsomorphic(String s1, String s2) {
+        Map<Character, Integer> m1 = new HashMap<>();
+        Map<Character, Integer> m2 = new HashMap<>();
+    
+        for(Integer i = 0; i < s1.length(); i++) {
+
+            if(m1.put(s1.charAt(i), i) != m2.put(s2.charAt(i), i)) {
+                return false;
             }
         }
         return true;
