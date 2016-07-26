@@ -12,7 +12,12 @@ public class Solution {
         }
         int j = 0, k = 0, g = 0;
         while(j != m || k != n){
-            if(k == n || nums1[n + j] < nums2[k]){
+            if(j == m){
+                nums1[g] = nums2[k];
+                g++;
+                k++;
+            }
+            else if(k == n || nums1[n + j] < nums2[k]){
                 nums1[g] = nums1[m + j];
                 g++;
                 j++;
