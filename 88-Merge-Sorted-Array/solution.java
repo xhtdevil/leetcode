@@ -8,7 +8,7 @@ public class Solution {
             return;
         }
         for(int i = 0; i < m; i++){
-            nums1[i + n] = nums1[i];
+            nums1[m + n - 1 - i] = nums1[m - i - 1]; //copy nums1 to the end of the array
         }
         int j = 0, k = 0, g = 0;
         while(j != m || k != n){
@@ -18,7 +18,7 @@ public class Solution {
                 k++;
             }
             else if(k == n || nums1[n + j] < nums2[k]){
-                nums1[g] = nums1[m + j];
+                nums1[g] = nums1[n + j];
                 g++;
                 j++;
             }
