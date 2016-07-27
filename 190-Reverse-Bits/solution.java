@@ -1,7 +1,7 @@
 public class Solution {
     // you need treat n as an unsigned value
     public int reverseBits(int n) {
-        if(n < 0){long m = 0x100000000L + n}
+        if(n < 0){long m = 0x100000000L + n;}
         else{long m = (long) n;}
         int reverse = 0;
         for(int i = 0; i < 32; i++){
