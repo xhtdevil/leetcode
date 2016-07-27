@@ -3,6 +3,8 @@ public class Solution {
         
         String common = "";
         
+        if(strs.length == 0)return common;
+        
         for(int i = 0; i < strs[0].length(); i++){
             
             char c = strs[0].charAt(i);
