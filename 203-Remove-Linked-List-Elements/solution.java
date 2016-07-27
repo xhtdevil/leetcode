@@ -15,6 +15,7 @@ public class Solution {
             if(node.next.val == val){
                 node.next = node.next.next;
             }
+            else
             node = node.next;
         }
         return head;
