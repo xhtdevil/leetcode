@@ -1,0 +1,1 @@
+use stack to determine whether the nums are duplicate
