@@ -11,7 +11,7 @@ public class Solution extends VersionControl {
             }else{
                 start = test + 1;
             }
-            test = (start + end) / 2;
+            test = start + (end - start) / 2; //start + end may exceed max int
         }    
         return start;
     }
