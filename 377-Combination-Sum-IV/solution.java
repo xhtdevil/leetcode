@@ -1,24 +1,21 @@
 public class Solution {
-    private int min;
+    private int[] r;
     public int combinationSum4(int[] nums, int target) {
         int n = nums.length;
-        int r[] = new int[target + 1];
-        int min = - Integer.MAX_VALUE;
-        for(int i = 0; i < n; i++){
-            if(nums[i] < min){min  = nums[i];}
-        }
+        r = new int[target + 1];
         for(int i = 0; i < target + 1; i++){
             r[i] = -1;
         }
-        return combination(nums, target, r);
+        r[0] = 1;
+        return combination(nums, target);
     }
-    public int combination(int[] nums, int target, int[] r) {
+    public int combination(int[] nums, int target) {
+        if(r[target] != -1)return r[target];
         int sum = 0;
-        if(target == 0)return 1;
-        if(target < min)return 0;
-        if(r[target] > 0)return r[target];
         for(int i = 0; i < nums.length; i++){
-            sum += combination(nums, target - nums[i], r);
+            if(target - nums[i] >= 0){
+                sum += combination(nums, target - nums[i]);
+            }
         }
         r[target] = sum;
         return sum;
