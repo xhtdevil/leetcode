@@ -15,7 +15,7 @@ public class Solution {
                 root.right.next = root.next.left;
             }
             connect(root.left);
-            connext(root.right);
+            connect(root.right);
         }
     }
 }
