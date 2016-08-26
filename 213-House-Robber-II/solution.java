@@ -1,6 +1,7 @@
 public class Solution {
     public int rob(int[] nums) {
         if(nums.length == 0)return 0;
+        if(nums.length == 1)return nums[0];
         return Math.max(helper(nums, 0, nums.length - 2), helper(nums, 1, nums.length - 1));
         // if(nums.length == 1)return nums[0];
         // int n = nums.length;
@@ -16,6 +17,8 @@ public class Solution {
         }
     
     private int helper(int[] nums, int start, int end){
+        if(end == start)return nums[start];
+        if(end - start == 1)return Math.max(nums[end], nums[start]);
         int max[] = new int[end + 1];
         max[start] = nums[start];
         max[start + 1] = Math.max(nums[start], nums[start + 1]); 
