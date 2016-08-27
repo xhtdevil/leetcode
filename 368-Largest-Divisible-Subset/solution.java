@@ -1,12 +1,14 @@
 public class Solution {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         //T[n+1] = max{ 1 + T[i] if a[n+1] mod a[i] == 0 else 1 }
-        Arrays.sort(nums);
         List<Integer> ans = new ArrayList<Integer>();
+        if(nums.length == 0)return ans;
+        Arrays.sort(nums);
+        
         int[] subSet= new int[nums.length];
         int[] parent= new int[nums.length];
         subSet[0] = 1;
-        int max = 0;
+        int max = 1;
         int maxi = 0;
         for(int i = 1; i < nums.length; i++){
             subSet[i] = 1;
