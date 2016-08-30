@@ -23,7 +23,7 @@ public class Solution {
     private void markIsland(char[][] grid, int[][] mark, int i, int j, int island){
         mark[i][j] = island;
         int m = grid.length, n = grid[0].length;
-        if(i < m && grid[i + 1][j] == '1' && mark[i + 1][j] != island)markIsland(grid, mark, i + 1, j, island);
-        if(j < n && grid[i][j + 1] == '1' && mark[i][j + 1] != island)markIsland(grid, mark, i, j + 1, island);
+        if(i < m - 1 && grid[i + 1][j] == '1' && mark[i + 1][j] != island)markIsland(grid, mark, i + 1, j, island);
+        if(j < n - 1 && grid[i][j + 1] == '1' && mark[i][j + 1] != island)markIsland(grid, mark, i, j + 1, island);
     } 
 }
