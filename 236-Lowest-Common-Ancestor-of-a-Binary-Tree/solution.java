@@ -44,7 +44,7 @@ public class Solution {
         List<TreeNode> pathp = new ArrayList<TreeNode>();
         List<TreeNode> pathq = new ArrayList<TreeNode>();
         if(isDescent(root, p, pathp) && isDescent(root, q, pathq)){
-            for(int i = pathp.size() - 1, j = pathq.size() - 1; i > 0, j > 0; i--, j--){
+            for(int i = pathp.size() - 1, j = pathq.size() - 1; i > 0 || j > 0; i--, j--){
                 if(pathp.get(i) == pathq.get(j) && pathp.get(i - 1) != pathq.get(j - 1))return path.get(i);
             }
         }
