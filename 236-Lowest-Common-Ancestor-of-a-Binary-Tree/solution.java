@@ -48,5 +48,6 @@ public class Solution {
                 if(pathp.get(i) == pathq.get(j) && pathp.get(i - 1) != pathq.get(j - 1))return pathp.get(i);
             }
         }
+        return null;
     }
 }
