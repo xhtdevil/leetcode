@@ -18,6 +18,6 @@ public class Solution {
     private boolean isDescent(TreeNode root, TreeNode child){
         if(root == null)return false;
         if(root == child)return true;
-        return isDescenet(root.right, child) || isDescent(root.left, child);
+        return isDescent(root.right, child) || isDescent(root.left, child);
     }
 }
