@@ -22,32 +22,32 @@ public class Solution {
     //     return isDescent(root.right, child) || isDescent(root.left, child);
     // }
     
-    private boolean isDescent(TreeNode root, TreeNode child, List<TreeNode> path){
-        if(root == null)return false;
-        if(root == child){
-            path.add(root);
-            return true;
-        }
-        if(isDescent(root.left, child, path)){
-            path.add(root.left);
-            return true;
-        }
-        else if(isDescent(root.right, child, path)){
-            path.add(root.right);
-            return true;
-        }
-        return false;
-    }
+    // private boolean isDescent(TreeNode root, TreeNode child, List<TreeNode> path){
+    //     if(root == null)return false;
+    //     if(root == child){
+    //         path.add(root);
+    //         return true;
+    //     }
+    //     path.add(root);
+    //     if(isDescent(root.left, child, path)){
+    //         path.add(root.left);
+    //         return true;
+    //     }
+    //     else if(isDescent(root.right, child, path)){
+    //         path.add(root.right);
+    //         return true;
+    //     }
+    //     return false;
+    // }
     
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
-        if(p == q)return p;
-        List<TreeNode> pathp = new ArrayList<TreeNode>();
-        List<TreeNode> pathq = new ArrayList<TreeNode>();
-        if(isDescent(root, p, pathp) && isDescent(root, q, pathq)){
-            for(int i = pathp.size() - 1, j = pathq.size() - 1; i > 0 || j > 0; i--, j--){
-                if(pathp.get(i) == pathq.get(j) && pathp.get(i - 1) != pathq.get(j - 1))return pathp.get(i);
-            }
+        if(root == null || p == root || q == root){
+            return root;
         }
-        return null;
+        TreeNode left = lowestCommonAncestor(root.left, p, q); 
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if(left != null && right != null)return root;
+        else if(left == null)return right;
+        else return left;
     }
 }
