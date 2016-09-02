@@ -1,15 +1,11 @@
 public class Solution {
+    //greedy O(n)
     public boolean canJump(int[] nums) {
-        return helper(nums, 0);
-    }
-    
-    private boolean helper(int[] nums, int start){
-        if(start == nums.length - 1)return true;
-        boolean res = false;
-        for(int i = Math.min(nums[start], nums.length - start - 1); i >= 1; i--){
-            res = res || helper(nums, start + i);
-            if(res == true)return res;
+        int reach = 0;
+        for(int i = 0; i < nums.length && i <= reach; i++){
+            reach = Math.max(reach, i + nums[i]);
         }
-        return res;
+        if(reach >= nums.length - 1)return true;
+        else return false;
     }
 }
