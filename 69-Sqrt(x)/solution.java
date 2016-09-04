@@ -3,9 +3,9 @@ public class Solution {
         if(x == 0)return 0;
         if(x == 1)return 1;
         int l = 0, r = x;
-        int mid = l + (x - l) / 2;
+        int mid = l + (r - l) / 2;
         while(l <= r){
-            mid = l + (x - l) / 2;
+            mid = l + (r - l) / 2;
             if((mid != 0 && mid > x / mid)){
                 r = mid - 1;
             }else{
