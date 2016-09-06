@@ -20,16 +20,17 @@ public class Solution {
         return depth;
     }
     public int countNodes(TreeNode root) {
-        
         if(root == null)return 0;
-       //if(root.right == null && root.left == null)return 1;
         int leftDepth = getDepth(root.left);
         int rightDepth = getDepth(root.right);
         if(leftDepth == rightDepth){
-           return (int) Math.pow(2, (double)leftDepth) + countNodes(root.right);
+           //return (int) Math.pow(2, (double)leftDepth) + countNodes(root.right);
+           return  (1 << leftDepth) + countNodes(root.right);           
+           //note 1 << leftDepth + countNodes means 1<<(left + countNodes)
         }
         else{
-            return (int) Math.pow(2, (double)rightDepth) + countNodes(root.left);
+            //return (int) Math.pow(2, (double)rightDepth) + countNodes(root.left);
+            return  (1 << rightDepth) + countNodes(root.left);
         }
     }
 }
