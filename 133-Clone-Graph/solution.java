@@ -16,7 +16,7 @@ public class Solution {
     
     private UndirectedGraphNode help(UndirectedGraphNode node, HashSet<UndirectedGraphNode> rec){
         if(node == null)return null;
-        UndirectedGraphNode ans = new UndirectedGraphNode(node.val);
+        UndirectedGraphNode ans = new UndirectedGraphNode(node.label);
         
         for(int i = 0; i < node.neighbors.size(); i++){
             if(rec.add(node.neighbors.get(i))){
