@@ -20,7 +20,7 @@ public class Solution {
         
         for(int i = 0; i < node.neighbors.size(); i++){
             if(rec.add(node.neighbors.get(i))){
-                ans.neighbors.add(help(node.neighbors.get(i)));
+                ans.neighbors.add(help(node.neighbors.get(i)), rec);
             }
         }
         return ans;
