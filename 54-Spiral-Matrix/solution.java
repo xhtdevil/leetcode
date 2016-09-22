@@ -10,13 +10,13 @@ public class Solution {
             for(int i = 0; i < maxn; i++){
                 list.add(matrix[row][i + row]);
             }
-            for(int i = 0; i < maxm - 1; i++){
-                list.add(matrix[i + row][m - row - 1]);
+            for(int i = 1; i < maxm; i++){
+                list.add(matrix[i + row][n - row - 1]);
             }
-            for(int i = 0; i < maxn - 1; i++){
-                list.add(matrix[n - row - 1][m - 1 - row - i]);
+            for(int i = 1; i < maxn && m - row - 1 > row; i++){
+                list.add(matrix[m - row - 1][n - 1 - row - i]);
             }
-            for(int i = 1; i < maxm - 1; i++){
+            for(int i = 1; i < maxm - 1 && row < n - row - 1; i++){
                 list.add(matrix[m - 1 - i - row][row]);
             }
             row++;
