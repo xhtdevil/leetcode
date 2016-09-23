@@ -10,8 +10,8 @@ public class Solution {
             } 
             else {
                 i = rep + 1;
-                j = i + 1;
-                l = 1;
+                j++;
+                l = j - i;
             }
             if(max < l)max = l;
         }
