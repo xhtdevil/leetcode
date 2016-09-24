@@ -22,7 +22,7 @@ public class Solution {
        // if(root.right != null){
             RS = root.right;
             if(RS != null){
-                while(RS.right != null){
+                while(RS.left != null){
                     RS = RS.left;
                 }
             }
