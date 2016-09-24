@@ -2,8 +2,9 @@ public class NumMatrix {
     int dp[][];
     public NumMatrix(int[][] matrix) {
         int m = matrix.length;
+        if(m == 0)return;
         int n = matrix[0].length;
-        if(m == 0 || n == 0)return;
+        if(n == 0)return;
         dp = new int[m + 1][n + 1];
         for(int i = 1; i <= m; i++){
             for(int j = 1; j <= n; j++){
