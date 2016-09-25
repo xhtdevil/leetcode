@@ -1,4 +1,4 @@
-    public class TrieNode{
+class TrieNode{
         public char val;
         public TrieNode[] children = new TrieNode[26];
         public boolean isWord;
