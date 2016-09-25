@@ -4,17 +4,17 @@ public class Solution {
         boolean[] used = new boolean[nums.length];
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         if(nums.length < 3)return ans;
-        help3Sum(nums, ans, used);
+        help3Sum(nums, ans);
         return ans;
     }
     
-    private void help3Sum(int[] nums, List<List<Integer>> ans, boolean[] used){
+    private void help3Sum(int[] nums, List<List<Integer>> ans){
         for(int i = 0; i < nums.length; i++){
-            if(i > 0 && nums[i] == nums[i - 1])continue;
+            if(i > 0 && nums[i] == nums[i - 1])continue;            // detect duplication situation
             if(nums[i] + nums[nums.length - 1] + nums[nums.length - 2] >= 0 && nums[i] + nums[0] + nums[1] <= 0){
-                used[i] = true;
+                
                 help2Sum(nums[i], i, nums, ans, used);
-                used[i] = false;
+                
             }
         }
     }
