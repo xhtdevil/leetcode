@@ -81,7 +81,7 @@ public class Solution {
                         chs[i] = c;
                         String str = String.valueOf(chs);
                         if(endSet.contains(str)) return len + 1;
-                        else if(wordList.contains(str) && !visted.contains(str)) {
+                        else if(wordList.contains(str) && !visited.contains(str)) {
                             temp.add(str);
                             visited.add(str);
                         }
