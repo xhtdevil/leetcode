@@ -1,7 +1,7 @@
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        boolean[] used = new boolean[nums.length];
+        //boolean[] used = new boolean[nums.length];
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         if(nums.length < 3)return ans;
         help3Sum(nums, ans);
@@ -13,13 +13,13 @@ public class Solution {
             if(i > 0 && nums[i] == nums[i - 1])continue;            // detect duplication situation
             if(nums[i] + nums[nums.length - 1] + nums[nums.length - 2] >= 0 && nums[i] + nums[0] + nums[1] <= 0){
                 
-                help2Sum(nums[i], i, nums, ans, used);
+                help2Sum(nums[i], i, nums, ans);
                 
             }
         }
     }
     
-    private void help2Sum(int num, int start, int[] nums, List<List<Integer>> ans, boolean[] used){
+    private void help2Sum(int num, int start, int[] nums, List<List<Integer>> ans){
         for(int i = start + 1; i < nums.length; i++){
             if(nums[i - 1] == nums[i] && start != i - 1)continue;
             if(nums[i] + nums[nums.length - 1] + num >= 0 && nums[i] + nums[0] + num <= 0){
