@@ -3,7 +3,7 @@ public class Solution {
         Arrays.sort(nums);
         boolean[] used = new boolean[nums.length];
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
-        if(nums.length == 0)return ans;
+        if(nums.length < 3)return ans;
         help3Sum(nums, ans, used);
         return ans;
     }
