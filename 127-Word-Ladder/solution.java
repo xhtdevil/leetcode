@@ -19,13 +19,13 @@ public class Solution {
         
         if(oneDifference(beginWord, endWord)){
             map.put(pair, 1);
-            return 1;
+            return 2;
         }
         
         int minStep = Integer.MAX_VALUE;
         
         for(String s : wordList) {
-            if(oneDifference(s, beginWord) && !used.containsKey(s) || used.get(s) == false) {
+            if(oneDifference(s, beginWord) && (!used.containsKey(s) || used.get(s) == false)) {
                 used.put(s, true);
                 int step = help(s, endWord, wordList, used);
                 if(step == 0)continue;
