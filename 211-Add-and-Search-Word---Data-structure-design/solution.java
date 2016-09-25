@@ -12,7 +12,7 @@ public class WordDictionary {
     TrieNode root;
     public WordDictionary(){
         TrieNode root = new TrieNode();
-        root.val = '';
+        root.val = ' ';
     }
     // Adds a word into the data structure.
     
