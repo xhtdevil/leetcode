@@ -39,7 +39,7 @@ public class WordDictionary {
     public boolean match(String word, int index, TrieNode root){
         TrieNode node = root;
         for(int i = index; i < word.length(); i++){
-            if(word.chatAt(i) == '.'){
+            if(word.charAt(i) == '.'){
                 for(int j = 0; j < 26; j++){
                     if(node.children[j] != null)match(word, i + 1, node.children);
                 }
