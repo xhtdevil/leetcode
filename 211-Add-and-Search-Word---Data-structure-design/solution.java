@@ -2,6 +2,7 @@ class TrieNode{
         public char val;
         public TrieNode[] children = new TrieNode[26];
         public boolean isWord;
+        public TrieNode() {}
         TrieNode(char c){
             TrieNode node = new TrieNode();
             node.val = c;
