@@ -58,6 +58,7 @@ public class Solution {
     public int ladderLength(String beginWord, String endWord, Set<String> wordList) {
         Set<String> beginSet = new HashSet<String>();
         Set<String> endSet = new HashSet<String>();
+        Set<String> visited = new HashSet<String>();
         beginSet.add(beginWord);
         endSet.add(endWord);
         
@@ -70,10 +71,10 @@ public class Solution {
                 endSet = temp;
             }
             
-            Set<String> visited = new HashSet<String>();
             
+            Set<String> temp = new HashSet<String>();
             for(String s : beginSet) {
-                Set<String> temp = new HashSet<String>();
+                
                 char[] chs = s.toCharArray();
                 for(int i = 0; i < strlen; i++) {
                     for(char c = 'a'; c <= 'z'; c++) {
