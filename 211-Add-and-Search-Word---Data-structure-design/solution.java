@@ -10,9 +10,8 @@ class TrieNode{
     }
     
 public class WordDictionary {
-    TrieNode root;
+    private TrieNode root = new TrieNode();
     public WordDictionary(){
-        TrieNode root = new TrieNode();
         root.val = ' ';
     }
     // Adds a word into the data structure.
