@@ -10,7 +10,7 @@
     
 public class WordDictionary {
     TrieNode root;
-    public wordDictionary(){
+    public WordDictionary(){
         TrieNode root = new TrieNode();
         root.val = '';
     }
