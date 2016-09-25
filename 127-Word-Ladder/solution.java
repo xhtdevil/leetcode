@@ -7,7 +7,7 @@ public class Solution {
         return help(beginWord, endWord, wordList, used);
     }
     
-    private int help(String beginWord, String endWord, Set<String> wordList, HashMap<String, Boolean> used) {
+    private int help(String beginWord, String endWord, Set<String> wordList, Map<String, Boolean> used) {
         
         String[] pair = new String[2];
         pair[0] = beginWord;
