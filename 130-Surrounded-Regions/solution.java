@@ -2,10 +2,11 @@ public class Solution {
     public void solve(char[][] board) {
         
         int m = board.length;
-        if(m == 0)return;
+        if(m <= 1)return;
         int n = board[0].length;
-        if(n == 0)return;
+        if(n <= 1)return;
         boolean[][] visited = new boolean[m][n];
+
         for(int i = 0; i < m ; i = i + m - 1) {
             for(int j = 0; j < n ; j = j + n - 1){
                 if(board[i][j] == 'O' && visited[i][j] != true){
