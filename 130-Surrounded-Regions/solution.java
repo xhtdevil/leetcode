@@ -6,9 +6,9 @@ public class Solution {
         int n = board[0].length;
         if(n == 0)return;
         boolean[][] visited = new boolean[m][n];
-        for(int i = 1; i < m ; i = i + m - 2) {
-            for(int j = 1; j < n ; j = j + n - 2){
-                if(board[i][j] == 'o' && visited[i][j] != true){
+        for(int i = 0; i < m ; i = i + m - 1) {
+            for(int j = 0; j < n ; j = j + n - 1){
+                if(board[i][j] == 'O' && visited[i][j] != true){
                     board[i][j] = 'b';
                     visited[i][j] = true;
                     search(board, i, j, visited);
@@ -16,44 +16,38 @@ public class Solution {
             }
         }
         
-        for(int i = 1; i < m ; i++) {
-            for(int j = 1; j < n ; j++){
-                if(board[i][j] == 'o'){
-                    board[i][j] = 'x';
+        for(int i = 0; i < m ; i++) {
+            for(int j = 0; j < n ; j++){
+                if(board[i][j] == 'O'){
+                    board[i][j] = 'X';
                 }
                 else if(board[i][j] == 'b') {
-                    board[i][j] = 'o';
+                    board[i][j] = 'O';
                 }
             }
         }
     }
     
     private void search(char[][] board, int i, int j, boolean[][] visited) {
-        //if(i == board.length - 1 || i == 0 || j == board[0].length - 1 || j == 0)return;
-
-        // if(i != 0 && board[i - 1][j] == 'o' && visited[i - 1][j] == false) {
-        //     board[i - 1][j] = 'b';
-        //     visited[i - 1][j] = true;
-        //     search(board, i - 1, j, visited);
-        // }
-        if(i != board.length - 1 && board[i + 1][j] == 'o' && visited[i + 1][j] == false) {
+       
+        if(i != board.length - 1 && board[i + 1][j] == 'O' && visited[i + 1][j] == false) {
             board[i + 1][j] = 'b';
             visited[i + 1][j] = true;
             search(board, i + 1, j, visited);
         }
-        if(j != board[0].length - 1 && board[i][j + 1] == 'o' && visited[i][j + 1] == false) {
+        if(j != board[0].length - 1 && board[i][j + 1] == 'O' && visited[i][j + 1] == false) {
             board[i][j + 1] = 'b';
             visited[i][j + 1] = true;
             search(board, i, j + 1, visited);
         }
         
-        if(i != 0 && board[i - 1][j] == 'o' && visited[i - 1][j] == false) {
+        if(i != 0 && board[i - 1][j] == 'O' && visited[i - 1][j] == false) {
             board[i - 1][j] = 'b';
             visited[i - 1][j] = true;
             search(board, i - 1, j, visited);
         }
         
-        if(j != 0 && board[i][j - 1] == 'o' && visited[i][j - 1] == false) {
+        if(j != 0 && board[i][j - 1] == 'O' && visited[i][j - 1] == false) {
             board[i][j - 1] = 'b';
             visited[i][j - 1] = true;
             search(board, i, j - 1, visited);
