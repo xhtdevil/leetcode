@@ -45,7 +45,7 @@ public class NumArray {
         update(root, i, val);
     }
     
-    void update(Segmented root, int i, int val) {
+    void update(SegmentedTree root, int i, int val) {
         if(root.start == root.end && i == root.start) root.sum = val;
         else if(root.start > root.end) return;
         else {
