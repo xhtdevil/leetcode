@@ -49,12 +49,13 @@ public class NumArray {
         if(root.start == root.end && i == root.start) root.sum = val;
         else if(root.start > root.end) return;
         else {
+            
             int mid = root.start + (root.end - root.start) / 2;
             if(i <= mid)update(root.left, i, val);
             else if( i > mid)update(root.right, i, val);
-            
+             root.sum = root.right.sum + root.left.sum;
         }
-        root.sum = root.right.sum + root.left.sum;
+       
     }
 
     public int sumRange(int i, int j) {
