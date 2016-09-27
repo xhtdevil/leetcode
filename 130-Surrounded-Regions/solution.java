@@ -5,32 +5,30 @@ public class Solution {
         if(m <= 1)return;
         int n = board[0].length;
         if(n <= 1)return;
-        boolean[][] visited = new boolean[m][n];
-
-        for(int i = 0; i < m ; i = i + m - 1) {
+        Queue<Point> q = new LinkedList<Point>();
             for(int j = 0; j < n ; j++){
-                if(board[i][j] == 'O' && visited[i][j] != true){
-                    //board[i][j] = 'b';
-                   // visited[i][j] = true;
-                    Queue<int[]> q = new LinkedList<int[]>();
-                    int[] pair = {i,j};
-                    q.add(pair);
-                    BFS(board, q, visited);
+                if(board[0][j] == 'O'){
+                    q.add(new Point(0, j));
+                    BFS(board, q);
+                }
+                if(board[m - 1][j] == 'O'){
+                    q.add(new Point(m - 1, j));
+                    BFS(board, q);
                 }
             }
-        }
+
         
          for(int i = 0; i < m ; i++) {
-            for(int j = 0; j < n ; j = j + n - 1){
-                if(board[i][j] == 'O' && visited[i][j] != true){
-                    //board[i][j] = 'b';
-                    visited[i][j] = true;
-                    Queue<int[]> q = new LinkedList<int[]>();
-                    int[] pair = {i,j};
-                    q.add(pair);
-                    BFS(board, q, visited);
+                if(board[i][0] == 'O'){
+
+                    q.add(new Point(i, 0));
+                    BFS(board, q);
                 }
-            }
+                if(board[i][n - 1] == 'O'){
+
+                    q.add(new Point(i, n - 1));
+                    BFS(board, q);
+                }
         }
         
         for(int i = 0; i < m ; i++) {
@@ -45,68 +43,33 @@ public class Solution {
         }
     }
     
-    //DFS stackoverflow
-//     private void search(char[][] board, int i, int j, boolean[][] visited) {
-//       if (i < 0 || i > board.length - 1 || j <0 || j > board[0].length - 1)
-// 		return;
-//         if(i < board.length - 2 && board[i + 1][j] == 'O' && visited[i + 1][j] == false) {
-//             board[i + 1][j] = 'b';
-//             visited[i + 1][j] = true;
-//             search(board, i + 1, j, visited);
-//         }
-//         if(j < board[0].length - 2 && board[i][j + 1] == 'O' && visited[i][j + 1] == false) {
-//             board[i][j + 1] = 'b';
-//             visited[i][j + 1] = true;
-//             search(board, i, j + 1, visited);
-//         }
-        
-//         if(i > 1 && board[i - 1][j] == 'O' && visited[i - 1][j] == false) {
-//             board[i - 1][j] = 'b';
-//             visited[i - 1][j] = true;
-//             search(board, i - 1, j, visited);
-//         }
-        
-//         if(j > 1 && board[i][j - 1] == 'O' && visited[i][j - 1] == false) {
-//             board[i][j - 1] = 'b';
-//             visited[i][j - 1] = true;
-//             search(board, i, j - 1, visited);
-//         }
-//     }
+
     
-    private void BFS(char[][] board, Queue<int[]> q, boolean[][] visited) {
+    private void BFS(char[][] board, Queue<Point> q) {
         while(!q.isEmpty()){
-            int[] pair1 = q.peek();
-            int i = pair1[0], j = pair1[1];
+            Point pair1 = q.poll();
+
+             int i = pair1.x, j = pair1.y;
             board[i][j] = 'b';
-            visited[i][j] = true;
-            q.remove();
-            if(i > 0 && board[i - 1][j] == 'O' && visited[i - 1][j] == false) {
-                int[] pair = new int[2];
-                pair[0] = i - 1;
-                pair[1] = j;
-                q.add(pair);
-                //visited[i - 1][j] = true;
+
+            if(i > 0 && board[i - 1][j] == 'O') {
+
+                q.add(new Point(i - 1, j));
             }
-            if(i < board.length - 1 && board[i + 1][j] == 'O' && visited[i + 1][j] == false) {
-                int[] pair = new int[2];
-                pair[0] = i + 1;
-                pair[1] = j;
-                q.add(pair);
-               // visited[i + 1][j] = true;
+            if(i < board.length - 1 && board[i + 1][j] == 'O') {
+
+                q.add(new Point(i + 1, j));
+
             }
-            if(j > 0 && board[i][j - 1] == 'O' && visited[i][j - 1] == false) {
-                int[] pair = new int[2];
-                pair[0] = i;
-                pair[1] = j - 1;
-                q.add(pair);
-              // visited[i][j - 1] = true;
+            if(j > 0 && board[i][j - 1] == 'O') {
+
+                q.add(new Point(i, j - 1));
+
             }
-            if(j < board[0].length - 1 && board[i][j + 1] == 'O' && visited[i][j + 1] == false) {
-                int[] pair = new int[2];
-                pair[0] = i;
-                pair[1] = j + 1;
-                q.add(pair);
-              //  visited[i][j + 1] = true;
+            if(j < board[0].length - 1 && board[i][j + 1] == 'O') {
+
+                q.add(new Point(i, j + 1));
+
             }
             
         }
