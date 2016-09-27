@@ -11,7 +11,7 @@ public class Solution {
             for(int j = 0; j < n ; j++){
                 if(board[i][j] == 'O' && visited[i][j] != true){
                     //board[i][j] = 'b';
-                    visited[i][j] = true;
+                   // visited[i][j] = true;
                     Queue<int[]> q = new LinkedList<int[]>();
                     int[] pair = {i,j};
                     q.add(pair);
@@ -75,30 +75,34 @@ public class Solution {
     
     private void BFS(char[][] board, Queue<int[]> q, boolean[][] visited) {
         while(!q.isEmpty()){
-            int[] pair = q.peek();
-            int i = pair[0], j = pair[1];
+            int[] pair1 = q.peek();
+            int i = pair1[0], j = pair1[1];
             board[i][j] = 'b';
             visited[i][j] = true;
             q.remove();
             if(i > 0 && board[i - 1][j] == 'O' && visited[i - 1][j] == false) {
+                int[] pair = new int[2];
                 pair[0] = i - 1;
                 pair[1] = j;
                 q.add(pair);
                 //visited[i - 1][j] = true;
             }
             if(i < board.length - 1 && board[i + 1][j] == 'O' && visited[i + 1][j] == false) {
+                int[] pair = new int[2];
                 pair[0] = i + 1;
                 pair[1] = j;
                 q.add(pair);
                // visited[i + 1][j] = true;
             }
             if(j > 0 && board[i][j - 1] == 'O' && visited[i][j - 1] == false) {
+                int[] pair = new int[2];
                 pair[0] = i;
                 pair[1] = j - 1;
                 q.add(pair);
               // visited[i][j - 1] = true;
             }
             if(j < board[0].length - 1 && board[i][j + 1] == 'O' && visited[i][j + 1] == false) {
+                int[] pair = new int[2];
                 pair[0] = i;
                 pair[1] = j + 1;
                 q.add(pair);
