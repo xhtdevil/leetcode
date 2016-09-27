@@ -78,30 +78,31 @@ public class Solution {
             int[] pair = q.peek();
             int i = pair[0], j = pair[1];
             board[i][j] = 'b';
+            visited[i][j] = true;
             q.remove();
-            if(i > 1 && board[i - 1][j] == 'O' && visited[i - 1][j] == false) {
+            if(i > 0 && board[i - 1][j] == 'O' && visited[i - 1][j] == false) {
                 pair[0] = i - 1;
                 pair[1] = j;
                 q.add(pair);
-                visited[i - 1][j] = true;
+                //visited[i - 1][j] = true;
             }
-            if(i < board.length - 2 && board[i + 1][j] == 'O' && visited[i + 1][j] == false) {
+            if(i < board.length - 1 && board[i + 1][j] == 'O' && visited[i + 1][j] == false) {
                 pair[0] = i + 1;
                 pair[1] = j;
                 q.add(pair);
-                visited[i + 1][j] = true;
+               // visited[i + 1][j] = true;
             }
-            if(j > 1 && board[i][j - 1] == 'O' && visited[i][j - 1] == false) {
+            if(j > 0 && board[i][j - 1] == 'O' && visited[i][j - 1] == false) {
                 pair[0] = i;
                 pair[1] = j - 1;
                 q.add(pair);
-                visited[i][j - 1] = true;
+              // visited[i][j - 1] = true;
             }
-            if(j < board.length - 2 && board[i][j + 1] == 'O' && visited[i][j + 1] == false) {
+            if(j < board[0].length - 1 && board[i][j + 1] == 'O' && visited[i][j + 1] == false) {
                 pair[0] = i;
                 pair[1] = j + 1;
                 q.add(pair);
-                visited[i][j + 1] = true;
+              //  visited[i][j + 1] = true;
             }
             
         }
