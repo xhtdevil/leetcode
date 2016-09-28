@@ -27,7 +27,7 @@ public:
             n = d2;
             while(n <= d1){
                 int rec = 1;
-                while(n << 1 < d1) {
+                while(n << 1 < d1 && n << 1 > 0) {
                     n = n << 1;
                     rec = rec << 1;
                 }
