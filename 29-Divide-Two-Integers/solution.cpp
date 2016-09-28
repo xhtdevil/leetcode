@@ -23,6 +23,7 @@ public:
         }
         
         else {
+            if(divisor == INT_MIN)return 0;
             d2 = abs(divisor);
             n = d2;
             while(n <= d1){
