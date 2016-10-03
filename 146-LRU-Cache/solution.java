@@ -76,6 +76,7 @@ public class LRUCache {
              tail.pre.next = tail;
              return node;
          }
+         return null;
     }
     
     public void moveNodeToHead(ListNode node) {
