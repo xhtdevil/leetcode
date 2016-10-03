@@ -72,8 +72,7 @@ public class LRUCache {
     public ListNode removeTail() {
          if(tail.pre != null) {
              ListNode node = tail.pre;
-             tail.pre = tail.pre.pre;
-             tail.pre.next = tail;
+             removeNode(node);
              return node;
          }
          return null;
