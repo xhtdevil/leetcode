@@ -8,7 +8,7 @@
  */
 public class Solution {
     public void connect(TreeLinkNode root) {
-        TreeLinkNode vir = New TreeLinkNode(0);
+        TreeLinkNode vir = new TreeLinkNode(0);
         
         while(root != null) {
             TreeLinkNode cur = vir;
@@ -18,7 +18,7 @@ public class Solution {
                     cur = cur.next;
                 }
                 if(root.right != null) {
-                    cur.next = root.next;
+                    cur.next = root.right;
                     cur = cur.next;
                 }
                 root = root.next;
