@@ -25,8 +25,11 @@ public class LRUCache {
         this.capacity = capacity;
         head = new ListNode();
         tail = new ListNode();
+        
+        //virtue head, tail
         head.next = tail;
         tail.pre = head;
+        
         count = 0;
     }
     
@@ -61,17 +64,16 @@ public class LRUCache {
     }
     
     public void removeNode(ListNode node) {
-        if(map.containsKey(node.key)) {
+
             // node.pre.next = node.next;
             // node.next.pre = node.pre;
             // node.next = null;
             // node.pre = null;
             ListNode pre = node.pre;
-	ListNode next = node.next;
-	
-	pre.next = next;
-	post.pre = pre;
-        }
+        	ListNode next = node.next;
+	        pre.next = next;
+	        next.pre = pre;
+
     }
     
     public ListNode removeTail() {
@@ -86,10 +88,10 @@ public class LRUCache {
     }
     
     public void moveNodeToHead(ListNode node) {
-        if(map.containsKey(node.key)) {
-            addNode(node);
             removeNode(node);
-        }
+            addNode(node);
+            
+
     }
     
     public void addNode(ListNode node) {
@@ -97,15 +99,6 @@ public class LRUCache {
         head.next.pre = node;
         head.next = node;
         node.pre = head;
-        // if(head == null) {
-        //     head = node;
-        //     tail = head;
-        // }
-        // else {
-        //     head.pre = node;
-        //     node.next = head;
-        //     head = node;
-        // }
     }
     
     
