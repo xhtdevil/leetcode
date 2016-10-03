@@ -21,7 +21,7 @@ public class LRUCache {
     int count;
     
     public LRUCache(int capacity) {
-        this.map = new HashMap<Integer, Integer>();
+        this.map = new HashMap<Integer, ListNode>();
         this.capacity = capacity;
         head = new ListNode();
         tail = new ListNode();
