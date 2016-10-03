@@ -62,17 +62,24 @@ public class LRUCache {
     
     public void removeNode(ListNode node) {
         if(map.containsKey(node.key)) {
-            node.pre.next = node.next;
-            node.next.pre = node.pre;
-            node.next = null;
-            node.pre = null;
+            // node.pre.next = node.next;
+            // node.next.pre = node.pre;
+            // node.next = null;
+            // node.pre = null;
+            ListNode pre = node.pre;
+	ListNode next = node.next;
+	
+	pre.next = next;
+	post.pre = pre;
         }
     }
     
     public ListNode removeTail() {
          if(tail.pre != null) {
              ListNode node = tail.pre;
-             removeNode(node);
+            //  tail.pre = tail.pre.pre;
+            //  tail.pre.next = tail;
+            removeNode(node);
              return node;
          }
          return null;
