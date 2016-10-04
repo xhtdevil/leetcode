@@ -2,7 +2,7 @@ public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int i = binarySearch(target / 2, numbers, 0, numbers.length - 1);
         int j = i + 1;
-        while(i >= 0 || j < numbers.length) {
+        while(i >= 0 && j < numbers.length) {
             if(numbers[i] + numbers[j] == target) {
                 int[] ans = {i + 1, j + 1};
                 return ans;
@@ -19,10 +19,13 @@ public class Solution {
     }
     
     private int binarySearch(int g, int[] numbers, int left, int right) {
-        if(left == right) return right;
+        if(left >= right) {
+            if(numbers[right] > g)return right - 1;
+            else return right;
+        };
         int mid = left + (right - left) / 2;
-        if(g > numbers[mid]) return binarySearch(g, numbers, mid, right);
-        else if(g < numbers[mid]) return binarySearch(g, numbers, left, mid - 1);
-        else return mid;
+        if(g > numbers[mid]) return binarySearch(g, numbers, mid + 1, right);
+        else  return binarySearch(g, numbers, left, mid);
+        
     }
 }
