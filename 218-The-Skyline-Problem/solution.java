@@ -30,7 +30,7 @@ public class Solution {
         //int[] max = new int[end];
         //List<int[]> ans = new ArrayList<>();
         int oldHeight = 0;
-        for(int i = start; i <= end; i++) {
+        for(int i = start; i <= end && i >= 0; i++) {
             //int oldHeight = buildings[heap2.peek()][2];
             while(!heap1.isEmpty() && buildings[heap1.peek()][1] <= i) {
                 int d = heap1.poll();
